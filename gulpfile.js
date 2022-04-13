@@ -5,7 +5,7 @@ const rename = require("gulp-rename");
 const {parallel} = require('gulp');
 
 const config = {
-    srcCss: ['./web/scss/afd.scss'], buildCss: './web/css'
+    srcCss: ['./web/scss/main.scss'], buildCss: './web/css'
 };
 
 function buildStyles() {
