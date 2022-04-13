@@ -1,0 +1,7 @@
+.btn-brand {
+    @include button-variant($brand, $brand, $brand-text-color, $hover-color: $brand-text-color, $active-color: $brand-text-color);
+}
+
+.btn-outline-brand {
+    @include button-outline-variant($brand, $color-hover: $brand-text-color, $active-color: $brand-text-color);
+}
