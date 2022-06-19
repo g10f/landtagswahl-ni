@@ -1,49 +1,15 @@
-$brand-colors: (
-  "error": $danger,
-  "brand": $brand,
-  "brand-light": $brand-light,
-  "default": $gray-300,
-);
-
-$theme-colors: map-merge($theme-colors, $brand-colors);
-$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
-// Utilities maps
-$utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
-$utilities-bg: map-merge($utilities-bg, $theme-colors-rgb);
-$utilities-text-colors: map-loop($utilities-colors, rgba-css-var, "$key", "text");
-$utilities-bg-colors: map-loop($utilities-bg, rgba-css-var, "$key", "bg");
-
-$link-decoration: none;
-$link-hover-decoration: underline;
-
-$sidebar-icon-color: shade-color($primary, 10%);
-$sidebar-icon-active-color: tint-color($component-active-bg, 90%);
-$sidebar-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$sidebar-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
-$sidebar-button-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$sidebar-icon-active-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-
-// scss-docs-start grid-breakpoints
-// scss-docs-start utilities-text-colors
-$grid-breakpoints: map-merge(
-    $grid-breakpoints,
-    (
-      xxxl: 1750px,
-    )
-);
-// scss-docs-end grid-breakpoints
-
-@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
-
-
-// Grid containers
+//== Typography
 //
-// Define the maximum width of `.container` for different screen sizes.
+//## Font, line-height, and color for body text, headings, and more.
+$font-family-sans-serif: Barlow, Arial, Helvetica, sans-serif;
+$font-size-base: 1.2rem; //.875rem;
 
-// scss-docs-start container-max-widths
-$container-max-widths: map-merge(
-    $container-max-widths,
-    (
-      xxxl: 1650px,
-    )
-);
-// scss-docs-end container-max-widths
+$afd-blue:				#0099ff;
+$afd-red:               #cc0000;
+$afd-blue-dark:         #0033cc;
+
+$brand:                 $afd-blue-dark;
+$brand-light:           $afd-blue;
+$brand-red:             $afd-red;
+
+$enable-negative-margins: true;

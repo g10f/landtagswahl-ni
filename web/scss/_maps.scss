@@ -1,0 +1,72 @@
+$brand-colors: (
+  "error": $danger,
+  "brand": $brand,
+  "brand-light": $brand-light,
+  "default": $gray-300,
+);
+
+
+$theme-colors: map-merge($theme-colors, $brand-colors);
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+// Utilities maps
+//
+// Extends the default `$theme-colors` maps to help create our utilities.
+
+// Come v6, we'll de-dupe these variables. Until then, for backward compatibility, we keep them to reassign.
+// scss-docs-start utilities-colors
+$utilities-colors: $theme-colors-rgb;
+// scss-docs-end utilities-colors
+
+// scss-docs-start utilities-text-colors
+$utilities-text: map-merge(
+  $utilities-colors,
+  (
+    "black": to-rgb($black),
+    "white": to-rgb($white),
+    "body": to-rgb($body-color)
+  )
+);
+$utilities-text-colors: map-loop($utilities-text, rgba-css-var, "$key", "text") !default;
+// scss-docs-end utilities-text-colors
+
+// scss-docs-start utilities-bg-colors
+$utilities-bg: map-merge(
+  $utilities-colors,
+  (
+    "black": to-rgb($black),
+    "white": to-rgb($white),
+    "body": to-rgb($body-bg)
+  )
+) ;
+$utilities-bg-colors: map-loop($utilities-bg, rgba-css-var, "$key", "bg");
+// scss-docs-end utilities-bg-colors
+
+$link-decoration: none;
+$link-hover-decoration: none;
+
+// scss-docs-start grid-breakpoints
+// scss-docs-start utilities-text-colors
+$grid-breakpoints: map-merge(
+    $grid-breakpoints,
+    (
+      xxxl: 1750px,
+    )
+);
+// scss-docs-end grid-breakpoints
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+// scss-docs-start container-max-widths
+$container-max-widths: map-merge(
+    $container-max-widths,
+    (
+      xxxl: 1650px,
+    )
+);
+// scss-docs-end container-max-widths
