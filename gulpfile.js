@@ -5,7 +5,7 @@ const rename = require("gulp-rename");
 const {parallel} = require('gulp');
 
 const config = {
-    srcCss: ['./web/scss/main.scss'], buildCss: './web/css'
+    srcCss: ['./docs/scss/main.scss'], buildCss: './docs/css'
 };
 
 function buildStyles() {
@@ -27,14 +27,14 @@ function copyJavaScriptFiles() {
     return gulp.src([
         './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
         './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map'])
-        .pipe(gulp.dest('./web/js/vendor'))
+        .pipe(gulp.dest('./docs/js/vendor'))
 }
 
 function copyFontFiles() {
     return gulp.src([
         './node_modules/bootstrap-icons/font/*.css',
         './node_modules/bootstrap-icons/font/**//fonts/*.*',
-    ]).pipe(gulp.dest('./web/font'))
+    ]).pipe(gulp.dest('./docs/font'))
 }
 
 exports.default = parallel(buildStyles, buildMinStyles, copyJavaScriptFiles, copyFontFiles);
